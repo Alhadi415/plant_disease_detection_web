@@ -41,7 +41,7 @@ def predict():
     img_array = preprocess_image(file.read())
     prediction = model.predict(img_array)
 
-    result = "Infected" if prediction[0][0] > 0.7 else "Healthy"
+    result = "Infected" if prediction[0][0] > 0.5 else "Healthy"
     return jsonify({"result": result})
 
 
