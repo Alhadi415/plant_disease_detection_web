@@ -1,5 +1,6 @@
 
 🌿 Plant Disease Detection API
+
 A simple web application built with Flask and Keras to detect whether a plant leaf is healthy or infected based on an uploaded image.
 
 🚀 Features
