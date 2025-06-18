@@ -9,11 +9,9 @@ import gdown
 
 app = Flask(__name__)
 
-# إعداد المسارات
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, 'plant_disease_model_final.h5')
 
-# تحميل النموذج من Google Drive إذا لم يكن موجودًا
 if not os.path.exists(MODEL_PATH):
     # ضع هنا ID الخاص بملف النموذج في Google Drive
     FILE_ID = "1RGKYGHs4-reK7I52ZoqKgk-MpPymZvfa"  
@@ -21,7 +19,6 @@ if not os.path.exists(MODEL_PATH):
     print("Downloading model from Google Drive...")
     gdown.download(GDRIVE_URL, MODEL_PATH, quiet=False)
 
-# تحميل النموذج
 model = load_model(MODEL_PATH)
 def preprocess_image(img_bytes):
     img = Image.open(io.BytesIO(img_bytes)).resize((256, 256))
